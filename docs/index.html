@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover" />
+  <title>StraightBar Lite – Visual</title>
+  <meta name="description" content="スマホGPSでABラインの横ズレを大きく見せる直進アシストPWA" />
+  <meta name="theme-color" content="#0b0f15" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO0Y5h8AAAAASUVORK5CYII=" />
+  <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO0Y5h8AAAAASUVORK5CYII=" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div class="title">
+      <strong>StraightBar Lite – Visual</strong>
+    </div>
+    <div class="status" id="statusText">GPS: 未取得 / 精度: --m / 速度: --km/h / 進行方位: --° / 更新: --Hz</div>
+  </header>
+
+  <main class="app-main">
+    <section class="deviation-panel">
+      <div class="arrow" id="dirArrow">→</div>
+      <div class="deviation" id="deviationText">0.0</div>
+      <div class="unit">m</div>
+      <div class="target-text" id="targetText">ターゲット: 0本目 / 横ズレ 0.00 m</div>
+      <div class="ab-info" id="abInfo">A: 未設定 / B: 未設定</div>
+    </section>
+
+    <section class="bar-panel">
+      <div class="bar-container">
+        <div class="bar" id="centerBar"></div>
+        <div class="cursor" id="cursor"></div>
+      </div>
+      <div class="scale-info">VISUAL ±<span id="visualSpan">15.0</span> m</div>
+    </section>
+
+    <section class="controls">
+      <button id="btnSetA">A点 設定</button>
+      <button id="btnSetB" disabled>B点 設定</button>
+      <button id="btnClear">リセット</button>
+      <button id="btnWatch">GPS開始</button>
+    </section>
+
+    <section class="sliders">
+      <label>視覚倍率 (±m 表示範囲)
+        <input id="rangeVisual" type="range" min="5" max="50" step="1" value="15" />
+      </label>
+      <label>スムージング
+        <input id="rangeSmooth" type="range" min="0" max="0.95" step="0.05" value="0.5" />
+      </label>
+    </section>
+
+    <section class="debug">
+      <div id="debugText"></div>
+    </section>
+  </main>
+
+  <footer class="app-footer">
+    <small>※ スマホ内蔵GPSは数mクラスの誤差があります。広い作業範囲向けの目安用途。</small>
+  </footer>
+
+  <script src="./app.js" type="module"></script>
+</body>
+</html>
