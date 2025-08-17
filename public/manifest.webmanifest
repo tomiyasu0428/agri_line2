@@ -1,0 +1,9 @@
+{
+  "name": "StraightBar Lite – Visual",
+  "short_name": "StraightBarLite",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0f15",
+  "theme_color": "#0b0f15",
+  "icons": []
+}
